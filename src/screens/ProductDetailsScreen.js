@@ -8,10 +8,12 @@ import {
   ScrollView,
   Pressable,
 } from "react-native";
-import products from "../data/products";
+import { useSelector } from "react-redux";
+// import products from "../data/products";
 
 const ProductDetailsScreen = () => {
-  const product = products[0];
+  const product=useSelector((state)=>state.products.selectedProduct)
+  // const product = products[0];
   const { width } = useWindowDimensions();
 
   const addToCart = () => {
@@ -44,7 +46,7 @@ const ProductDetailsScreen = () => {
             <Text style={styles.buttonText}>Add to cart</Text>
           </Pressable>
         </View>
-        
+
       </ScrollView>
     </View>
   );
